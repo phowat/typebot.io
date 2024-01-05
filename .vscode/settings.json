@@ -1,5 +1,8 @@
 {
-  "i18n-ally.localesPaths": ["apps/builder/src/i18n"],
+  "i18n-ally.localesPaths": [
+    "apps/builder/src/i18n",
+    "packages/embeds/wordpress/trunk/languages"
+  ],
   "i18n-ally.keystyle": "flat",
   "i18n-ally.displayLanguage": "en",
   "i18n-ally.enabledFrameworks": ["custom"],
