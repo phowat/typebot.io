@@ -31,6 +31,10 @@ export const BlockLabel = ({ type }: Props): JSX.Element => {
       return <Text fontSize="sm">{t('editor.sidebarBlock.number.label')}</Text>
     case InputBlockType.EMAIL:
       return <Text fontSize="sm">{t('editor.sidebarBlock.email.label')}</Text>
+    case InputBlockType.DOCUMENT:
+      return (
+        <Text fontSize="sm">{t('editor.sidebarBlock.document.label')}</Text>
+      )
     case InputBlockType.URL:
       return <Text fontSize="sm">{t('editor.sidebarBlock.website.label')}</Text>
     case InputBlockType.DATE:

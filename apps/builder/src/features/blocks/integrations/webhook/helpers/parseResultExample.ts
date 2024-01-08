@@ -161,6 +161,8 @@ const getSampleValue = ({
       return 'answer value'
     case InputBlockType.URL:
       return 'https://test.com'
+    case InputBlockType.DOCUMENT:
+      return '883.840.540-96'
   }
 }
 

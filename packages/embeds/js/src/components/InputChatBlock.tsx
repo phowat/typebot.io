@@ -13,12 +13,14 @@ import type {
   PictureChoiceBlock,
   PaymentInputBlock,
   DateInputBlock,
+  DocumentInputBlock,
 } from '@typebot.io/schemas'
 import { GuestBubble } from './bubbles/GuestBubble'
 import { BotContext, InputSubmitContent } from '@/types'
 import { TextInput } from '@/features/blocks/inputs/textInput'
 import { NumberInput } from '@/features/blocks/inputs/number'
 import { EmailInput } from '@/features/blocks/inputs/email'
+import { DocumentInput } from '@/features/blocks/inputs/document'
 import { UrlInput } from '@/features/blocks/inputs/url'
 import { PhoneInput } from '@/features/blocks/inputs/phone'
 import { DateForm } from '@/features/blocks/inputs/date'
@@ -156,6 +158,13 @@ const Input = (props: {
       <Match when={props.block.type === InputBlockType.EMAIL}>
         <EmailInput
           block={props.block as EmailInputBlock}
+          defaultValue={getPrefilledValue()}
+          onSubmit={onSubmit}
+        />
+      </Match>
+      <Match when={props.block.type === InputBlockType.DOCUMENT}>
+        <DocumentInput
+          block={props.block as DocumentInputBlock}
           defaultValue={getPrefilledValue()}
           onSubmit={onSubmit}
         />

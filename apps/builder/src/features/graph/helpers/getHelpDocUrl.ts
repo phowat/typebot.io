@@ -25,6 +25,8 @@ export const getHelpDocUrl = (
       return 'https://docs.typebot.io/editor/blocks/inputs/number'
     case InputBlockType.EMAIL:
       return 'https://docs.typebot.io/editor/blocks/inputs/email'
+    case InputBlockType.DOCUMENT:
+      return 'https://docs.builder.instant.com.br/editor/blocks/inputs/document'
     case InputBlockType.URL:
       return 'https://docs.typebot.io/editor/blocks/inputs/website'
     case InputBlockType.DATE:

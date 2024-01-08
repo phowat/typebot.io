@@ -10,6 +10,7 @@ import { TextBubbleContent } from '@/features/blocks/bubbles/textBubble/componen
 import { VideoBubbleContent } from '@/features/blocks/bubbles/video/components/VideoBubbleContent'
 import { DateNodeContent } from '@/features/blocks/inputs/date/components/DateNodeContent'
 import { EmailInputNodeContent } from '@/features/blocks/inputs/emailInput/components/EmailInputNodeContent'
+import { DocumentInputNodeContent } from '@/features/blocks/inputs/document/components/DocumentInputNodeContent'
 import { FileInputContent } from '@/features/blocks/inputs/fileUpload/components/FileInputContent'
 import { NumberNodeContent } from '@/features/blocks/inputs/number/components/NumberNodeContent'
 import { PaymentInputContent } from '@/features/blocks/inputs/payment/components/PaymentInputContent'
@@ -74,6 +75,9 @@ export const BlockNodeContent = ({
     }
     case InputBlockType.EMAIL: {
       return <EmailInputNodeContent options={block.options} />
+    }
+    case InputBlockType.DOCUMENT: {
+      return <DocumentInputNodeContent options={block.options} />
     }
     case InputBlockType.URL: {
       return <UrlNodeContent options={block.options} />

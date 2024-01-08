@@ -12,6 +12,7 @@ import { VideoBubbleIcon } from '@/features/blocks/bubbles/video/components/Vide
 import { ButtonsInputIcon } from '@/features/blocks/inputs/buttons/components/ButtonsIcon'
 import { DateInputIcon } from '@/features/blocks/inputs/date/components/DateInputIcon'
 import { EmailInputIcon } from '@/features/blocks/inputs/emailInput/components/EmailInputIcon'
+import { DocumentInputIcon } from '@/features/blocks/inputs/document/components/DocumentInputIcon'
 import { FileInputIcon } from '@/features/blocks/inputs/fileUpload/components/FileInputIcon'
 import { NumberInputIcon } from '@/features/blocks/inputs/number/components/NumberInputIcon'
 import { PaymentInputIcon } from '@/features/blocks/inputs/payment/components/PaymentInputIcon'
@@ -66,6 +67,8 @@ export const BlockIcon = ({ type, mt }: BlockIconProps): JSX.Element => {
       return <NumberInputIcon color={orange} mt={mt} />
     case InputBlockType.EMAIL:
       return <EmailInputIcon color={orange} mt={mt} />
+    case InputBlockType.DOCUMENT:
+      return <DocumentInputIcon color={orange} mt={mt} />
     case InputBlockType.URL:
       return <UrlInputIcon color={orange} mt={mt} />
     case InputBlockType.DATE:

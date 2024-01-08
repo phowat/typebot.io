@@ -30,6 +30,7 @@ import { SetVariableSettings } from '@/features/blocks/logic/setVariable/compone
 import { TypebotLinkForm } from '@/features/blocks/logic/typebotLink/components/TypebotLinkForm'
 import { NumberInputSettings } from '@/features/blocks/inputs/number/components/NumberInputSettings'
 import { EmailInputSettings } from '@/features/blocks/inputs/emailInput/components/EmailInputSettings'
+import { DocumentInputSettings } from '@/features/blocks/inputs/document/components/DocumentInputSettings'
 import { UrlInputSettings } from '@/features/blocks/inputs/url/components/UrlInputSettings'
 import { DateInputSettings } from '@/features/blocks/inputs/date/components/DateInputSettings'
 import { PhoneInputSettings } from '@/features/blocks/inputs/phone/components/PhoneInputSettings'
@@ -134,6 +135,14 @@ export const BlockSettings = ({
     case InputBlockType.EMAIL: {
       return (
         <EmailInputSettings
+          options={block.options}
+          onOptionsChange={updateOptions}
+        />
+      )
+    }
+    case InputBlockType.DOCUMENT: {
+      return (
+        <DocumentInputSettings
           options={block.options}
           onOptionsChange={updateOptions}
         />

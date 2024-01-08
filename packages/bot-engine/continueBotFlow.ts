@@ -10,6 +10,10 @@ import { isInputBlock, byId } from '@typebot.io/lib'
 import { executeGroup, parseInput } from './executeGroup'
 import { getNextGroup } from './getNextGroup'
 import { validateEmail } from './blocks/inputs/email/validateEmail'
+import {
+  validateCNPJ,
+  validateCPF,
+} from './blocks/inputs/document/validateDocument'
 import { formatPhoneNumber } from './blocks/inputs/phone/formatPhoneNumber'
 import { validateUrl } from './blocks/inputs/url/validateUrl'
 import { resumeWebhookExecution } from './blocks/integrations/webhook/resumeWebhookExecution'
@@ -28,6 +32,7 @@ import { parseNumber } from './blocks/inputs/number/parseNumber'
 import { BubbleBlockType } from '@typebot.io/schemas/features/blocks/bubbles/constants'
 import { InputBlockType } from '@typebot.io/schemas/features/blocks/inputs/constants'
 import { defaultPaymentInputOptions } from '@typebot.io/schemas/features/blocks/inputs/payment/constants'
+import { defaultDocumentInputOptions } from '@typebot.io/schemas/features/blocks/inputs/document/constants'
 import { IntegrationBlockType } from '@typebot.io/schemas/features/blocks/integrations/constants'
 import { LogicBlockType } from '@typebot.io/schemas/features/blocks/logic/constants'
 import { defaultEmailInputOptions } from '@typebot.io/schemas/features/blocks/inputs/email/constants'
@@ -291,6 +296,8 @@ const parseDefaultRetryMessage = (block: InputBlock): string => {
       return defaultEmailInputOptions.retryMessageContent
     case InputBlockType.PAYMENT:
       return defaultPaymentInputOptions.retryMessageContent
+    case InputBlockType.DOCUMENT:
+      return defaultDocumentInputOptions.retryMessageContent
     default:
       return 'Invalid message. Please, try again.'
   }
@@ -466,6 +473,17 @@ const parseReply =
       }
       case InputBlockType.TEXT: {
         if (!inputValue) return { status: 'fail' }
+        return { status: 'success', reply: inputValue }
+      }
+      case InputBlockType.DOCUMENT: {
+        if (!inputValue) return { status: 'fail' }
+        if (block.options?.documentType === 'cpf') {
+          const isValid = validateCPF(inputValue)
+          if (!isValid) return { status: 'fail' }
+        } else if (block.options?.documentType === 'cnpj') {
+          const isValid = validateCNPJ(inputValue)
+          if (!isValid) return { status: 'fail' }
+        }
         return { status: 'success', reply: inputValue }
       }
     }

@@ -2,6 +2,7 @@ import { z } from '../../../zod'
 import { buttonsInputSchemas } from './choice'
 import { dateInputSchema } from './date'
 import { emailInputSchema } from './email'
+import { documentInputSchema } from './document'
 import { numberInputSchema } from './number'
 import { paymentInputSchema } from './payment'
 import { phoneNumberInputBlockSchema } from './phone'
@@ -24,6 +25,7 @@ export const inputBlockSchemas = {
     ratingInputBlockSchema,
     fileInputBlockSchemas.v5,
     pictureChoiceBlockSchemas.v5,
+    documentInputSchema,
   ],
   v6: [
     textInputSchema,
@@ -37,6 +39,7 @@ export const inputBlockSchemas = {
     ratingInputBlockSchema,
     fileInputBlockSchemas.v6,
     pictureChoiceBlockSchemas.v6,
+    documentInputSchema,
   ],
 } as const
 
